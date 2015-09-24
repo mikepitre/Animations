@@ -22,11 +22,17 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nub-UA-txT">
                                 <rect key="frame" x="139" y="408" width="97" height="30"/>
                                 <state key="normal" title="Update Image"/>
+                                <connections>
+                                    <action selector="updateImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T0t-2G-SfG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="alienImage" destination="e69-6i-xIq" id="Dd2-VY-ESA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
