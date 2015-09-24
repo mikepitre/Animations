@@ -11,29 +11,53 @@ import UIKit
 class ViewController: UIViewController {
     
     var counter = 1
+    
+    var timer = NSTimer()
+    
+    var isAnimating = true
 
     @IBOutlet weak var alienImage: UIImageView!
     
     @IBAction func updateImage(sender: AnyObject) {
         
-        if counter == 5 {
+        if isAnimating == true {
+        
+            timer.invalidate()
             
-            counter = 1
+            isAnimating = false
             
         } else {
-        
-            counter++
-        
+            
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.15, target: self, selector: Selector("doAnimation"), userInfo: nil, repeats: true)
+            
+            isAnimating = true
+
         }
-        
-        alienImage.image = UIImage(named: "frame\(counter).png")
         
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.15, target: self, selector: Selector("doAnimation"), userInfo: nil, repeats: true)
+        
+    }
+    
+    func doAnimation() {
+        
+        if counter == 5 {
+            
+            counter = 1
+            
+        } else {
+            
+            counter++
+            
+        }
+        
+        alienImage.image = UIImage(named: "frame\(counter).png")
+        
     }
 
     override func didReceiveMemoryWarning() {
