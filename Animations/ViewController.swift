@@ -22,12 +22,11 @@ class ViewController: UIViewController {
             
         } else {
         
-        counter++
+            counter++
         
         }
         
         alienImage.image = UIImage(named: "frame\(counter).png")
-        
         
     }
     
@@ -41,7 +40,42 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidLayoutSubviews() {
+        
+        alienImage.center = CGPointMake(alienImage.center.x - 400, alienImage.center.y)
+        
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        UIView.animateWithDuration(1) { () -> Void in
+            
+            self.alienImage.center = CGPointMake(self.alienImage.center.x + 400, self.alienImage.center.y)
+            
+        }
+        
+        
+    }
+    
+    
+    
+    
+    
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
